@@ -1,0 +1,199 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#8ab4d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#3ecfb2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-side" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#7a9ab8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .connector { stroke: #4a7fa0; stroke-width: 1.5; fill: none; }
+      .connector-teal { stroke: #3ecfb2; stroke-width: 1.5; fill: none; }
+      .connector-side { stroke: #5a8eaa; stroke-width: 1.2; fill: none; stroke-dasharray: 4,3; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1100" fill="#0a1826"/>
+
+  <!-- ══ LAYER 1: Threat Feeds (APIs) ══ -->
+  <rect x="50" y="30" width="620" height="110" rx="14" fill="#c8dff0" stroke="#9cbcd8" stroke-width="1"/>
+  <text x="360" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2438">Threat Feeds (APIs)</text>
+
+  <rect x="75" y="68" width="150" height="58" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="150" y="96" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">CVE / NVD API</text>
+
+  <rect x="255" y="68" width="200" height="58" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="355" y="91" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Malicious IP Feeds</text>
+  <text x="355" y="108" text-anchor="middle" font-size="10" fill="#1a4060">AbuseIPDB · AlienVault OTX</text>
+
+  <rect x="485" y="68" width="165" height="58" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="567" y="96" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Simulated Data</text>
+
+  <!-- Arrows down to Python Data Collector -->
+  <line x1="150" y1="126" x2="340" y2="175" class="connector" marker-end="url(#arrow)"/>
+  <line x1="355" y1="126" x2="355" y2="175" class="connector" marker-end="url(#arrow)"/>
+  <line x1="567" y1="126" x2="370" y2="175" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ══ Python Data Collector ══ -->
+  <rect x="218" y="175" width="278" height="46" rx="10" fill="#162840" stroke="#2e5f88" stroke-width="1.2"/>
+  <text x="357" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#e0f0ff">Python Data Collector</text>
+  <text x="357" y="212" text-anchor="middle" font-size="11" fill="#7aadd0">Orchestrates all ingestion sources</text>
+
+  <!-- Arrow down -->
+  <line x1="357" y1="221" x2="357" y2="268" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ══ LAYER 2: Processing & Enrichment Layer ══ -->
+  <rect x="50" y="268" width="620" height="195" rx="14" fill="#162840" stroke="#2a5070" stroke-width="1.2"/>
+  <text x="360" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#bcd6ee">Processing &amp; Enrichment Layer</text>
+
+  <rect x="75" y="304" width="162" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="156" y="325" text-anchor="middle" font-size="11" font-weight="600" fill="#d0e8f8">Data Normalizer</text>
+  <text x="156" y="343" text-anchor="middle" font-size="10" fill="#6a9ec0">Pydantic schema models</text>
+
+  <line x1="237" y1="332" x2="270" y2="332" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="270" y="304" width="198" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="369" y="325" text-anchor="middle" font-size="11" font-weight="600" fill="#d0e8f8">Enrichment Engine</text>
+  <text x="369" y="343" text-anchor="middle" font-size="10" fill="#6a9ec0">GeoIP · MITRE ATT&amp;CK mapping</text>
+
+  <line x1="468" y1="332" x2="498" y2="332" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="498" y="304" width="148" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="572" y="325" text-anchor="middle" font-size="11" font-weight="600" fill="#d0e8f8">Threat Categorization</text>
+  <text x="572" y="343" text-anchor="middle" font-size="10" fill="#6a9ec0">Attack type · severity score</text>
+
+  <line x1="369" y1="360" x2="369" y2="385" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ML Service -->
+  <rect x="166" y="385" width="200" height="58" rx="8" fill="#1db896" stroke="#158a70" stroke-width="0.8"/>
+  <text x="266" y="408" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">ML Service (FastAPI)</text>
+  <text x="266" y="425" text-anchor="middle" font-size="10" fill="#d0fff8">Anomaly detection · severity prediction</text>
+
+  <line x1="366" y1="414" x2="408" y2="414" class="connector-teal" marker-end="url(#arrow-teal)"/>
+
+  <!-- Alert Engine -->
+  <rect x="408" y="385" width="228" height="58" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="522" y="408" text-anchor="middle" font-size="11" font-weight="600" fill="#d0e8f8">Alerting System</text>
+  <text x="522" y="425" text-anchor="middle" font-size="10" fill="#6a9ec0">Telegram · Email (SendGrid / SMTP)</text>
+
+  <!-- Arrow down from Processing layer to Storage -->
+  <line x1="357" y1="463" x2="357" y2="508" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ══ SIDE PANEL: Scheduler ══ -->
+  <rect x="700" y="268" width="170" height="195" rx="12" fill="#1a2f45" stroke="#2d5272" stroke-width="1"/>
+  <text x="785" y="294" text-anchor="middle" font-size="11" font-weight="700" fill="#a8cce0">SCHEDULER</text>
+  <text x="785" y="310" text-anchor="middle" font-size="10" fill="#6a9ab8">Automated Ingestion</text>
+
+  <rect x="720" y="320" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="335" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">GitHub Actions</text>
+  <text x="785" y="350" text-anchor="middle" font-size="10" fill="#6a9ab8">Cron · every 15 min</text>
+
+  <rect x="720" y="368" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="383" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">Render.com</text>
+  <text x="785" y="398" text-anchor="middle" font-size="10" fill="#6a9ab8">Cloud deployment</text>
+
+  <rect x="720" y="416" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="431" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">Environment Config</text>
+  <text x="785" y="446" text-anchor="middle" font-size="10" fill="#6a9ab8">API keys · settings</text>
+
+  <line x1="670" y1="365" x2="698" y2="365" class="connector-side" marker-end="url(#arrow-side)"/>
+  <line x1="670" y1="415" x2="698" y2="415" class="connector-side" marker-end="url(#arrow-side)"/>
+
+  <!-- ══ LAYER 3: Data Storage Layer ══ -->
+  <rect x="50" y="508" width="620" height="108" rx="14" fill="#162840" stroke="#2a5070" stroke-width="1.2"/>
+  <text x="360" y="532" text-anchor="middle" font-size="14" font-weight="700" fill="#bcd6ee">Data Storage Layer</text>
+
+  <rect x="75" y="545" width="258" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="204" y="567" text-anchor="middle" font-size="12" font-weight="600" fill="#d0e8f8">MongoDB Atlas</text>
+  <text x="204" y="584" text-anchor="middle" font-size="10" fill="#6a9ec0">Free M0 tier · aggregate queries</text>
+
+  <line x1="333" y1="573" x2="368" y2="573" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="368" y="545" width="278" height="56" rx="8" fill="#1db896" stroke="#158a70" stroke-width="0.8"/>
+  <text x="507" y="567" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Settings &amp; Config Cache</text>
+  <text x="507" y="584" text-anchor="middle" font-size="10" fill="#d0fff8">API keys · cloud client · data loader</text>
+
+  <line x1="357" y1="616" x2="357" y2="658" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ══ LAYER 4: Backend Services ══ -->
+  <rect x="50" y="658" width="620" height="108" rx="14" fill="#162840" stroke="#2a5070" stroke-width="1.2"/>
+  <text x="360" y="682" text-anchor="middle" font-size="14" font-weight="700" fill="#bcd6ee">Backend Services</text>
+
+  <rect x="75" y="695" width="258" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="204" y="717" text-anchor="middle" font-size="12" font-weight="600" fill="#d0e8f8">ML Microservice (FastAPI)</text>
+  <text x="204" y="734" text-anchor="middle" font-size="10" fill="#6a9ec0">Predict · classify · anomaly batch</text>
+
+  <line x1="333" y1="723" x2="368" y2="723" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="368" y="695" width="278" height="56" rx="8" fill="#1a3050" stroke="#2e5878" stroke-width="0.8"/>
+  <text x="507" y="717" text-anchor="middle" font-size="12" font-weight="600" fill="#d0e8f8">Dash Application Server</text>
+  <text x="507" y="734" text-anchor="middle" font-size="10" fill="#6a9ec0">Gunicorn · port 8050</text>
+
+  <line x1="357" y1="766" x2="357" y2="808" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ══ LAYER 5: Live Dashboard ══ -->
+  <rect x="50" y="808" width="620" height="258" rx="14" fill="#c8dff0" stroke="#9cbcd8" stroke-width="1"/>
+  <text x="360" y="834" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2438">Live Dashboard (Plotly / Dash)</text>
+
+  <rect x="75" y="848" width="258" height="68" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="204" y="870" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Treemap / Sunburst</text>
+  <text x="204" y="887" text-anchor="middle" font-size="10" fill="#1a4060">MITRE ATT&amp;CK hierarchy</text>
+  <text x="204" y="904" text-anchor="middle" font-size="10" fill="#1a4060">vulnerability prioritization</text>
+
+  <rect x="363" y="848" width="278" height="68" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="502" y="870" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Geospatial Threat Map</text>
+  <text x="502" y="887" text-anchor="middle" font-size="10" fill="#1a4060">Choropleth + Scatter Geo</text>
+  <text x="502" y="904" text-anchor="middle" font-size="10" fill="#1a4060">global risk mapping</text>
+
+  <rect x="75" y="930" width="258" height="68" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="204" y="952" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Time-Series &amp; Trend Charts</text>
+  <text x="204" y="969" text-anchor="middle" font-size="10" fill="#1a4060">Attack frequency · severity · heatmap</text>
+  <text x="204" y="986" text-anchor="middle" font-size="10" fill="#1a4060">anomaly spikes</text>
+
+  <rect x="363" y="930" width="278" height="68" rx="8" fill="#a8cce0" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="502" y="952" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Threat Intel &amp; Reporting</text>
+  <text x="502" y="969" text-anchor="middle" font-size="10" fill="#1a4060">IOC Lookup · OTX Pulses</text>
+  <text x="502" y="986" text-anchor="middle" font-size="10" fill="#1a4060">executive-ready reports</text>
+
+  <!-- Security tools bar -->
+  <rect x="75" y="1014" width="566" height="36" rx="8" fill="#93bdd8" stroke="#7aaabf" stroke-width="0.8"/>
+  <text x="358" y="1030" text-anchor="middle" font-size="12" font-weight="600" fill="#0d2438">Security Tools</text>
+  <text x="358" y="1045" text-anchor="middle" font-size="10" fill="#1a4060">Network Scanner · URL Scanner · Threat Intelligence Lookup</text>
+
+  <!-- ══ SIDE PANEL: External Integrations ══ -->
+  <rect x="700" y="508" width="170" height="262" rx="12" fill="#1a2f45" stroke="#2d5272" stroke-width="1"/>
+  <text x="785" y="534" text-anchor="middle" font-size="11" font-weight="700" fill="#a8cce0">SIDE PANEL</text>
+  <text x="785" y="550" text-anchor="middle" font-size="10" fill="#6a9ab8">External Integrations</text>
+
+  <rect x="720" y="560" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="575" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">AbuseIPDB API</text>
+  <text x="785" y="590" text-anchor="middle" font-size="10" fill="#6a9ab8">IOC lookups</text>
+
+  <rect x="720" y="608" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="623" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">AlienVault OTX</text>
+  <text x="785" y="638" text-anchor="middle" font-size="10" fill="#6a9ab8">Threat pulses</text>
+
+  <rect x="720" y="656" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="671" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">GeoIP Service</text>
+  <text x="785" y="686" text-anchor="middle" font-size="10" fill="#6a9ab8">Free location enrichment</text>
+
+  <rect x="720" y="704" width="130" height="36" rx="6" fill="#1a3a58" stroke="#2e5070" stroke-width="0.7"/>
+  <text x="785" y="719" text-anchor="middle" font-size="11" font-weight="600" fill="#c0daf0">Telegram / Email</text>
+  <text x="785" y="734" text-anchor="middle" font-size="10" fill="#6a9ab8">Alert delivery</text>
+
+  <line x1="670" y1="574" x2="718" y2="578" class="connector-side" marker-end="url(#arrow-side)"/>
+  <line x1="670" y1="624" x2="718" y2="626" class="connector-side" marker-end="url(#arrow-side)"/>
+  <line x1="670" y1="674" x2="718" y2="674" class="connector-side" marker-end="url(#arrow-side)"/>
+  <line x1="670" y1="724" x2="718" y2="722" class="connector-side" marker-end="url(#arrow-side)"/>
+
+  <!-- Module labels -->
+  <text x="30" y="170" text-anchor="middle" font-size="9" fill="#4a7a9a" transform="rotate(-90,30,170)">MODULE 1</text>
+  <text x="30" y="375" text-anchor="middle" font-size="9" fill="#4a7a9a" transform="rotate(-90,30,375)">MODULE 1 + 2</text>
+  <text x="30" y="565" text-anchor="middle" font-size="9" fill="#4a7a9a" transform="rotate(-90,30,565)">MODULE 2</text>
+  <text x="30" y="720" text-anchor="middle" font-size="9" fill="#4a7a9a" transform="rotate(-90,30,720)">MODULE 3</text>
+  <text x="30" y="960" text-anchor="middle" font-size="9" fill="#4a7a9a" transform="rotate(-90,30,960)">MODULE 4</text>
+</svg>
